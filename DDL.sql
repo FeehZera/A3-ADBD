@@ -21,21 +21,25 @@ CREATE TABLE public.Directors (
 
 ALTER SEQUENCE public.directors_id_director_seq_1 OWNED BY public.Directors.id_director;
 
+CREATE SEQUENCE public.movies_id_movie_seq;
+
 CREATE TABLE public.Movies (
-                id_movie INTEGER NOT NULL,
+                id_movie INTEGER NOT NULL DEFAULT nextval('public.movies_id_movie_seq'),
                 original_title VARCHAR NOT NULL,
                 overview VARCHAR,
                 release_date DATE NOT NULL,
                 status VARCHAR NOT NULL,
                 vote_average NUMERIC,
                 vote_count INTEGER,
-                cast_1 VARCHAR,
+                actors VARCHAR,
                 original_language VARCHAR,
                 homepage VARCHAR,
                 title VARCHAR NOT NULL,
                 CONSTRAINT movies_pk PRIMARY KEY (id_movie)
 );
 
+
+ALTER SEQUENCE public.movies_id_movie_seq OWNED BY public.Movies.id_movie;
 
 CREATE SEQUENCE public.relations_id_relations_seq;
 
