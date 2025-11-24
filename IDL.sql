@@ -25,12 +25,11 @@ INSERT INTO movies (
 
 SELECT * FROM movies;
 
-INSERT into directors (
-    name) VALUES ('James Cameron');
+INSERT into directors (name) VALUES ('James Cameron');
 
-    INSERT into genres(genre) VALUES ('Science Fiction');
-    INSERT into genres(genre) VALUES ('Adventure');
-    INSERT into genres(genre) VALUES ('Action');
+INSERT into genres(genre) VALUES ('Science Fiction');
+INSERT into genres(genre) VALUES ('Adventure');
+INSERT into genres(genre) VALUES ('Action');
 
 SELECT * FROM directors;
 SELECT * FROM genres;
