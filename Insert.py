@@ -149,4 +149,4 @@ relations_df = pd.DataFrame(relations_rows)
 with engine.begin() as conn:
     relations_df.to_sql("relations", conn, if_exists="append", index=False)
 
-print("Carga concluída com sucesso (sem tabelas temporárias).")
+print("Carga concluída com sucesso.")
