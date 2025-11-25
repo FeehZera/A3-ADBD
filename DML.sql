@@ -57,7 +57,7 @@ DELETE FROM genres;
 DELETE FROM directors;
 
 TRUNCATE TABLE directors, movies, relations, genres RESTART IDENTITY CASCADE;
-// retorna filmes a partir de uma data
+--retorna filmes a partir de uma data
 SELECT 
     title, 
     release_date 
@@ -65,7 +65,7 @@ FROM
     public.Movies 
 WHERE 
     release_date >= '2015-01-01';
-// retorna filmes e diretores
+--retorna filmes e diretores
 SELECT 
     m.title AS filme,
     d.name AS diretor
@@ -75,7 +75,7 @@ JOIN
     public.Relations r ON m.id_movie = r.id_movie
 JOIN 
     public.Directors d ON r.id_director = d.id_director;
-// retorna filmes, diretores e media do votos
+--retorna filmes, diretores e media do votos
 SELECT 
     g.genre, 
     COUNT(r.id_movie) AS total_filmes, 
@@ -90,7 +90,7 @@ GROUP BY
     g.genre
 HAVING 
     COUNT(r.id_movie) > 5;
-// retorna filme e o voto de cada um
+--retorna filme e o voto de cada um
 SELECT 
     title, 
     vote_average
@@ -100,7 +100,7 @@ WHERE
     vote_average > (
         SELECT AVG(vote_average) FROM public.Movies
     );
-// retorna filmes que possuem uma plavra especifica em seu titulo
+--retorna filmes que possuem uma plavra especifica em seu titulo
 SELECT 
     title, 
     overview 
@@ -108,7 +108,7 @@ FROM
     public.Movies 
 WHERE 
     title ILIKE '%Love%';
-// retorna os 5 filmes com nota mais altas
+--retorna os 5 filmes com nota mais altas
     SELECT 
     title, 
     vote_average 
@@ -119,7 +119,7 @@ WHERE
 ORDER BY 
     vote_average DESC 
 LIMIT 5;
-// retorna quantos lancamentos ocoreram em cada ano
+--retorna quantos lancamentos ocoreram em cada ano
 SELECT 
     EXTRACT(YEAR FROM release_date) AS ano,
     COUNT(id_movie) AS total_lancamentos
@@ -129,12 +129,12 @@ GROUP BY
     EXTRACT(YEAR FROM release_date)
 ORDER BY 
     ano DESC;
-    // retona o total de diretores
+--retona o total de diretores
 SELECT 
     COUNT(DISTINCT id_director) AS total_diretores_unicos
 FROM 
     public.Relations;
-// retorna os filmes e seus elencos
+--retorna os filmes e seus elencos
 SELECT 
     title, 
     actors 
@@ -142,7 +142,7 @@ FROM
     public.Movies 
 WHERE 
     actors ILIKE '%Brad Pitt%';
-// retorna os generos com notas acima de 9
+--retorna os generos com notas acima de 9
 SELECT 
     g.genre
 FROM 
