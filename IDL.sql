@@ -45,3 +45,16 @@ INSERT INTO relations (
 );
 
 SELECT * FROM relations;
+
+SELECT * FROM directors;
+
+SELECT * FROM genres;
+
+SELECT * FROM movies where id_movie = 4804;
+
+DELETE FROM relations;
+DELETE FROM movies;
+DELETE FROM genres;
+DELETE FROM directors;
+
+TRUNCATE TABLE directors, movies, relations, genres RESTART IDENTITY CASCADE;
