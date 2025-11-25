@@ -41,7 +41,7 @@ INSERT INTO relations (
 ) VALUES (
     (1),
     (1),
-    (1,2,3)
+    (1)
 );
 
 SELECT * FROM relations;
